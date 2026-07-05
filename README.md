@@ -154,6 +154,20 @@ joblib
    - Cleaned dataset and keyword CSVs in `data/`
 4. Open `Social Media Sentiment Analysis.pbix` in Power BI Desktop and refresh the data source to load the latest results.
 
+### Optional Xquik Export Import
+
+To analyze exported Xquik tweet data with the same training pipeline, convert a CSV
+that includes `Tweet Text`, `Username`, and `Tweet Created At` headers into the
+Sentiment140-style columns first:
+
+```bash
+python xquik_import.py xquik-export.csv data/xquik-sentiment140.csv
+```
+
+The generated file uses the same `target,id,date,flag,user,text` order expected by
+the existing `sentiment_analysis.py` loader. Add labels before training if you use
+the converted file as a supervised dataset.
+
 ---
 
 ## 🚀 Future Improvements
